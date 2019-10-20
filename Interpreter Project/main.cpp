@@ -43,5 +43,6 @@ int main(void) {
 	fclose(inputF);
 	free(memory);
 
+
 	return 0;
 }
