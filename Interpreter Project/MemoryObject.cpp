@@ -1,7 +1,9 @@
-/*
- * MemoryObject.cpp
- *
- *  Created on: Oct 19, 2019
- *      Author:
- */
+#include "MemoryObject.h"
 
+MemoryObject::MemoryObject() {}
+MemoryObject::~MemoryObject() {}
+
+void MemoryObject::getByteCode(int pc) {
+	
+	return 
+}
