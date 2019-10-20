@@ -1,33 +1,36 @@
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
+#include<stdlib.h>
 using namespace std;
 
 int main(void) {
 
-	char * memblock;
+	FILE *inputF = fopen("interpreter_input.smp", "rb");
+	fseek(inputF, 0, SEEK_END);
+	long inputSize = ftell(inputF);
+	rewind(inputF);
 
-	streampos size;
-	ifstream fpin("interpreter_input.smp", ios::in | ios::binary);
-//	fpin.open("interpreter_intput.smp", ios::in | ios::binary);
-
-
-	if (fpin.is_open()) {
-		size = fpin.tellg();
-		cout << fpin.tellg <<endl;
-		memblock = new char [size];
-		fpin.seekg(0, ios::beg);
-		fpin.read(memblock, size);
-		fpin.close();
-		cout << "the entire file content is in the memory" << endl;
-
-
-
-		delete[] memblock;
+	char* buffer = (char*) malloc(sizeof(char) * inputSize);
+	if (buffer == NULL) {
+		fputs("memory error", stderr);
+		exit(1);
 	}
-	else cout << "Unable to open file";
 
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	cout << "John" << endl; // prints !!!Hello World!!!
+	long result = fread(buffer, 1, inputSize, inputF);
+	if (result != inputSize) {
+		fputs("reading error", stderr);
+		exit(2);
+	}
+
+	cout << result << endl;
+	for (int i = 0; i < inputSize; i++){
+		cout << buffer[i] << endl;
+	}
+
+	fclose(inputF);
+	free(buffer);
+
 
 	return 0;
 }
