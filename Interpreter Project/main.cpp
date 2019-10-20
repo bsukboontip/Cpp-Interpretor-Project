@@ -1,24 +1,24 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
+#include <stack>
 using namespace std;
 
 int main(void) {
-	
 
 	FILE *inputF = fopen("interpreter_input.smp", "rb");
 	fseek(inputF, 0, SEEK_END);
 	long inputSize = ftell(inputF);
 	rewind(inputF);
 
-	char* buffer = (char*) malloc(sizeof(char) * inputSize);
-	if (buffer == NULL) {
+	char* memory = (char*) malloc(sizeof(char) * inputSize);
+	if (memory == NULL) {
 		fputs("memory error", stderr);
 		exit(1);
 	}
 
-	long result = fread(buffer, 1, inputSize, inputF);
+	long result = fread(memory, 1, inputSize, inputF);
 	if (result != inputSize) {
 		fputs("reading error", stderr);
 		exit(2);
@@ -26,11 +26,22 @@ int main(void) {
 
 	cout << result << endl;
 	for (int i = 0; i < inputSize; i++){
-		cout << buffer[i] << endl;
+		cout << memory[i] << endl;
+	}
+
+	int pc = 0;
+	int sp = -1;
+	int fpsp = -1;
+	stack <int> rstack;
+	stack <int> fpstack;
+
+	bool continue = true;
+	while (continue) {
+		pc = memory.getBytecode(pc).execute(pc);
 	}
 
 	fclose(inputF);
-	free(buffer);
+	free(memory);
 
 	return 0;
 }
