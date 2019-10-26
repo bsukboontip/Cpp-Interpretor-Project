@@ -6,4 +6,9 @@ public:
 	Value();
 	virtual ~Value();
 
+	char getChar();
+	short getShort();
+	int getInt();
+	float getFloat();
+
 };
