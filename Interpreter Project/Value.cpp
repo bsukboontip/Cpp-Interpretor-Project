@@ -1,6 +1,13 @@
 #include "Value.h"
 
-Value::Value() {}
+Value::Value() {
+	error = false;
+}
+
+Value::Value(bool x) {
+	error = x;
+}
+
 Value::~Value() {}
 
 char Value::getChar() {
@@ -17,4 +24,9 @@ int Value::getInt() {
 
 float Value::getFloat() {
 	return f;
+}
+
+int Value::execute() {
+	error = true;
+	return NULL;
 }

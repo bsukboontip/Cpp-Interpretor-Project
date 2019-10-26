@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <stack>
 #include "MemoryObject.h"
+#include "Value.h"
+#include "ByteCode.h"
 using namespace std;
 
 int main(void) {
@@ -39,20 +41,39 @@ int main(void) {
 
 	// MemoryObject* memO[inputSize];
 	// for(i = 0; i < inputSize; i++) {
-	// 	memO[i] = new MemoryObject();
+	// 	memO[i] = new ByteCode();
+	// 	// if (memO[i] == NULL)
+	// 	// 	memo[i] = newValue();
 	// }
+	MemoryObject* theOne[inputSize];
+	// theOne[0] = new ByteCode();
 
-	MemoryObject* memO[inputSize];
-	for(i = 0; i < inputSize; i++) {
-		memO[i] = new ByteCode();
-		if (memO[i] == NULL)
-			memo[i] = newValue();
+	for (i = 0; i < inputSize; i++) {
+		// cout << "Fon" << endl;
+		if (memory[i] == 68) {
+			theOne[i] = new ByteCode();
+			// cout << "clown" << endl;
+			theOne[i]->execute();
+		}
+		else if (memory[i] == 69) {
+			theOne[i] = new ByteCode();
+			// cout << "clown" << endl;
+			theOne[i]->execute();
+		}
+		else if (memory[i] == 70) {
+			theOne[i] = new ByteCode();
+			cout << "clown" << endl;
+			theOne[i]->execute();
+		}
+		else if (memory[i] == 71) {
+			theOne[i] = new ByteCode();
+			// cout << "clown" << endl;
+			theOne[i]->execute();
+		}
 	}
 
-	// bool continue = true;
-	// while (continue) {
-	// 	pc = memory.getBytecode(pc).execute(pc);
-	// }
+
+	// pc = theOne->getByteCode(pc)->execute(pc);
 
 	fclose(inputF);
 	free(memory);
