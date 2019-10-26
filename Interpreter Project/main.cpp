@@ -35,10 +35,10 @@ int main(void) {
 	stack <int> rstack;
 	stack <int> fpstack;
 
-	bool continue = true;
-	while (continue) {
-		pc = memory.getBytecode(pc).execute(pc);
-	}
+	// bool continue = true;
+	// while (continue) {
+	// 	pc = memory.getBytecode(pc).execute(pc);
+	// }
 
 	fclose(inputF);
 	free(memory);
