@@ -6,6 +6,6 @@ public:
 	MemoryObject();
 	virtual ~MemoryObject();
 
-	virtual ByteCode getByteCode(int);
+//	virtual ByteCode getByteCode(int);
 
 };

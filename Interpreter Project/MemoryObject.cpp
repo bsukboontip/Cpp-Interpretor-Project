@@ -1,4 +1,9 @@
-#include "ByteCode.h"
+#include "MemoryObject.h"
 
-ByteCode::ByteCode() {}
-ByteCode::~ByteCode() {}
+MemoryObject::MemoryObject() {}
+MemoryObject::~MemoryObject() {}
+
+//void MemoryObject::getByteCode(int pc) {
+//
+//	return
+//}
