@@ -1,5 +1,5 @@
-#ifndef CMPE_H
-#define CMPE_H
+#ifndef PEEKI_H
+#define PEEKI_H
 #include "ByteCode.h"
 
 class Peeki : public ByteCode {

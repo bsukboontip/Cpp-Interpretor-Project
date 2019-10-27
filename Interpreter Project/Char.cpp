@@ -17,20 +17,20 @@ char Char::getChar() {
 
 short Char::getShort() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int Char::getInt() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 float Char::getFloat() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int Char::execute() {
 	error = true;
-	return NULL;
+	return 0;
 }

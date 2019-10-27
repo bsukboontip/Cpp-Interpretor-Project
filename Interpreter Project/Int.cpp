@@ -13,25 +13,25 @@ Int::~Int() {}
 
 char Int::getChar() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 short Int::getShort() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int Int::getInt() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 float Int::getFloat() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int Int::execute() {
 	error = true;
-	return NULL;
+	return 0;
 }

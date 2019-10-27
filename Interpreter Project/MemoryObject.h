@@ -1,33 +1,34 @@
 #ifndef MEMORYOBJECT_H
 #define MEMORYOBJECT_H
 #include<iostream>
-#include<string>
+#include<stack>
+#include<vector>
 using namespace std;
 
 class MemoryObject {
 public:
 	MemoryObject();
 	virtual ~MemoryObject();
-	// MemoryObject(char*, int);
 
 	char* memory;
-	// MemoryObject** memO;
 	bool error;
 
+	char type;
 	char c;
 	short s;
 	int i;
 	float f;
+
+	// static int sp = -1;
+	// static int fpsp = -1;
+	// static vector<Value>rstack;
+	// static stack<int>fpstack;
 
 	virtual int execute();
 	virtual char getChar();
 	virtual short getShort();
 	virtual int getInt();
 	virtual float getFloat();
-
-	// virtual ByteCode* getMemory(int pc);
-
-//	virtual ByteCode getByteCode(int);
 
 };
 #endif

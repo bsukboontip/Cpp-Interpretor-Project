@@ -2,9 +2,6 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stack>
-#include <vector>
-#include <string.h>
 #include "MemoryObject.h"
 #include "Value.h"
 #include "ByteCode.h"
@@ -32,6 +29,10 @@
 #include "Call.h"
 #include "Ret.h"
 
+#include "Pushc.h"
+#include "Pushs.h"
+#include "Pushi.h"
+#include "Pushf.h"
 #include "Pushvc.h"
 #include "Pushvf.h"
 #include "Pushvi.h"
@@ -47,6 +48,7 @@
 #include "Pokef.h"
 #include "Pokei.h"
 #include "Pokes.h"
+#include "Swp.h"
 
 using namespace std;
 
@@ -69,28 +71,50 @@ int main(void) {
 		exit(2);
 	}
 
-	// cout << result << endl;
-	// for (i = 0; i < inputSize; i++){
-	// 	cout << memory[i] << endl;
-	// }
-
-	int i;
-	int pc = 0;
 	int sp = -1;
 	int fpsp = -1;
 	vector<Value>rstack;
 	stack <int> fpstack;
+	int pc = 0;
 
 	MemoryObject* theOne[inputSize];
 
 	for (pc = 0; pc < inputSize; pc++) {
-		if (memory[pc] == 68) {
-			theOne[pc] = new ByteCode();
+		if (memory[pc] == 132) {
+			theOne[pc] = new Cmpe();
+		}
+
+		else if (memory[pc] == 136) {
+			theOne[pc] = new Cmplt();
+		}
+
+		else if (memory[pc] == 140) {
+			theOne[pc] = new Cmpgt();
+		}
+
+		else if (memory[pc] == 36) {
+			theOne[pc] = new Jmp();
+		}
+
+		else if (memory[pc] == 40) {
+			theOne[pc] = new Jmpc();
+		}
+
+		else if (memory[pc] == 44) {
+			theOne[pc] = new Call();
+		}
+
+		else if (memory[pc] == 48) {
+			theOne[pc] = new Ret();
+		}
+
+		else if (memory[pc] == 68) {
+			theOne[pc] = new Pushc();
 			theOne[pc]->c = memory[pc];
 			theOne[++pc] = new Char();
 		}
 		else if (memory[pc] == 69) {
-			theOne[pc] = new ByteCode();
+			theOne[pc] = new Pushs();
 			theOne[++pc] = new Short();
 
 			short shortBytes = (short)((unsigned char)(memory[pc] << 8) |
@@ -100,8 +124,7 @@ int main(void) {
 			theOne[++pc] = new Short(true);
 		}
 		else if (memory[pc] == 70) {
-			// cout << pc << endl;
-			theOne[pc] = new ByteCode();
+			theOne[pc] = new Pushi();
 			theOne[++pc] = new Int();
 
 			// for (i = pc; i < pc + 4; i++) {
@@ -121,7 +144,7 @@ int main(void) {
 			theOne[++pc] = new Int(true);
 		}
 		else if (memory[pc] == 71) {
-			theOne[pc] = new ByteCode();
+			theOne[pc] = new Pushf();
 			theOne[++pc] = new Float();
 
 			float floatByte = (float)((unsigned char)(memory[pc]) << 24 |
@@ -134,10 +157,105 @@ int main(void) {
 			theOne[++pc] = new Float(true);
 			theOne[++pc] = new Float(true);
 		}
+
+		else if (memory[pc] == 72) {
+			theOne[pc] = new Pushvc();
+		}
+
+		else if (memory[pc] == 73) {
+			theOne[pc] = new Pushvs();
+		}
+
+		else if (memory[pc] == 74) {
+			theOne[pc] = new Pushvi();
+		}
+
+		else if (memory[pc] == 75) {
+			theOne[pc] = new Pushvf();
+		}
+
+		else if (memory[pc] == 76) {
+			theOne[pc] = new Popm();
+		}
+
+		else if (memory[pc] == 80) {
+			theOne[pc] = new Popv();
+		}
+
+		else if (memory[pc] == 77) {
+			theOne[pc] = new Popa();
+		}
+
+		else if (memory[pc] == 84) {
+			theOne[pc] = new Peekc();
+		}
+
+		else if (memory[pc] == 85) {
+			theOne[pc] = new Peeks();
+		}
+
+		else if (memory[pc] == 86) {
+			theOne[pc] = new Peeki();
+		}
+
+		else if (memory[pc] == 87) {
+			theOne[pc] = new Peekf();
+		}
+
+		else if (memory[pc] == 88) {
+			theOne[pc] = new Pokec();
+		}
+
+		else if (memory[pc] == 89) {
+			theOne[pc] = new Pokes();
+		}
+
+		else if (memory[pc] == 90) {
+			theOne[pc] = new Pokei();
+		}
+
+		else if (memory[pc] == 91) {
+			theOne[pc] = new Pokef();
+		}
+
+		else if (memory[pc] == 94) {
+			theOne[pc] = new Swp();
+		}
+
+		else if (memory[pc] == 100) {
+			theOne[pc] = new Add();
+		}
+
+		else if (memory[pc] == 104) {
+			theOne[pc] = new Sub();
+		}
+
+		else if (memory[pc] == 108) {
+			theOne[pc] = new Mul();
+		}
+
+		else if (memory[pc] == 112) {
+			theOne[pc] = new Div();
+		}
+
+		else if (memory[pc] == 144) {
+			theOne[pc] = new Printc();
+		}
+
+		else if (memory[pc] == 145) {
+			theOne[pc] = new Prints();
+		}
+
+		else if (memory[pc] == 146) {
+			theOne[pc] = new Printi();
+		}
+
+		else if (memory[pc] == 147) {
+			theOne[pc] = new Printf();
+		}
 	}
 
-
-	// pc = theOne->getByteCode(pc)->execute(pc);
+	pc = theOne[pc]->execute();
 
 	fclose(inputF);
 	free(memory);
