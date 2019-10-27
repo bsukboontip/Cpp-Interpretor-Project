@@ -1,6 +1,5 @@
 #include "Halt.h"
 
-
 Halt::Halt(){}
 Halt::~Halt(){}
 

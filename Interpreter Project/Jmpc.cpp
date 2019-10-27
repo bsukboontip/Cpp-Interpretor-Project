@@ -1,6 +1,5 @@
 #include "Jmpc.h"
 
-
 Jmpc::Jmpc(){}
 Jmpc::~Jmpc(){}
 

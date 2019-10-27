@@ -5,22 +5,22 @@ ByteCode::~ByteCode() {}
 
 char ByteCode::getChar() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 short ByteCode::getShort() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int ByteCode::getInt() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 float ByteCode::getFloat() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int ByteCode::execute() {

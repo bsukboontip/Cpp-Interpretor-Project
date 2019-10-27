@@ -2,6 +2,7 @@
 
 Int::Int() {
 	error = false;
+	type = 'i';
 }
 
 Int::Int(bool x) {

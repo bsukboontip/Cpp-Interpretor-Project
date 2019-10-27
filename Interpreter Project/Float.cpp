@@ -2,6 +2,7 @@
 
 Float::Float() {
 	error = false;
+	type = 'f';
 }
 
 Float::Float(bool x) {

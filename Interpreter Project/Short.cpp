@@ -2,6 +2,7 @@
 
 Short::Short() {
 	error = false;
+	type = 's';
 }
 
 Short::Short(bool x) {

@@ -12,7 +12,7 @@ Value::~Value() {}
 
 char Value::getChar() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 short Value::getShort() {
@@ -21,15 +21,15 @@ short Value::getShort() {
 
 int Value::getInt() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 float Value::getFloat() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int Value::execute() {
 	error = true;
-	return NULL;
+	return 0;
 }

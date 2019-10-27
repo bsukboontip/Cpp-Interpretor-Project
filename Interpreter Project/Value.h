@@ -10,6 +10,7 @@ public:
 	virtual ~Value();
 
 	Value(bool);
+	char type;
 
 	virtual char getChar();
 	virtual short getShort();

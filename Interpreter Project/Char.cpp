@@ -2,6 +2,7 @@
 
 Char::Char() {
 	error = false;
+	type = 'c';
 }
 
 Char::Char(bool x) {
