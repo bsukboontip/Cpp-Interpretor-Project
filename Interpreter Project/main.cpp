@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stack>
+#include <vector>
 #include <string.h>
 #include "MemoryObject.h"
 #include "Value.h"
@@ -41,7 +42,7 @@ int main(void) {
 	int pc = 0;
 	int sp = -1;
 	int fpsp = -1;
-	stack <int> rstack;
+	vector<Values>rstack;
 	stack <int> fpstack;
 
 	MemoryObject* theOne[inputSize];

@@ -1,6 +1,5 @@
 #include "Pokec.h"
 
-
 Pokec::Pokec(){}
 Pokec::~Pokec(){}
 

@@ -8,10 +8,10 @@ class ByteCode : public MemoryObject{
 public:
 	ByteCode();
 	virtual ~ByteCode();
-	char getChar();
-	short getShort();
-	int getInt();
-	float getFloat();
-	int execute();
+	virtual char getChar();
+	virtual short getShort();
+	virtual int getInt();
+	virtual float getFloat();
+	virtual int execute();
 };
 #endif
