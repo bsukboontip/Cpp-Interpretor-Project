@@ -14,6 +14,11 @@ public:
 	// MemoryObject** memO;
 	bool error;
 
+	char c;
+	short s;
+	int i;
+	float f;
+
 	virtual int execute();
 	virtual char getChar();
 	virtual short getShort();

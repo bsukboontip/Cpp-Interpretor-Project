@@ -11,7 +11,8 @@ Value::Value(bool x) {
 Value::~Value() {}
 
 char Value::getChar() {
-	return c;
+	error = true;
+	return NULL;
 }
 
 short Value::getShort() {
@@ -19,11 +20,13 @@ short Value::getShort() {
 }
 
 int Value::getInt() {
-	return i;
+	error = true;
+	return NULL;
 }
 
 float Value::getFloat() {
-	return f;
+	error = true;
+	return NULL;
 }
 
 int Value::execute() {

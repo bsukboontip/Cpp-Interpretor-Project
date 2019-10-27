@@ -25,6 +25,5 @@ float ByteCode::getFloat() {
 
 int ByteCode::execute() {
 	int pc = 0;
-	cout << "bruhh" << endl;
 	return pc;
 }

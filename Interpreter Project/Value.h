@@ -11,16 +11,11 @@ public:
 
 	Value(bool);
 
-	char c;
-	short s;
-	int i;
-	float f;
-
-	char getChar();
-	short getShort();
-	int getInt();
-	float getFloat();
-	int execute();
+	virtual char getChar();
+	virtual short getShort();
+	virtual int getInt();
+	virtual float getFloat();
+	virtual int execute();
 
 };
 #endif
