@@ -1,4 +1,4 @@
-return 0;#include "Peekc.h"
+#include "Peekc.h"
 
 
 Peekc::Peekc(){}

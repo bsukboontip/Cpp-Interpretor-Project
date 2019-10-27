@@ -7,5 +7,5 @@ public:
 	Sub();
 	virtual ~Sub();
 	int execute();
-}
+};
 #endif

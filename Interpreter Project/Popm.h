@@ -7,5 +7,5 @@ public:
 	Popm();
 	virtual ~Popm();
 	int execute();
-}
+};
 #endif

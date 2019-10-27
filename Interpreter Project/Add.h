@@ -7,5 +7,5 @@ public:
 	Add();
 	virtual ~Add();
 	int execute();
-}
+};
 #endif

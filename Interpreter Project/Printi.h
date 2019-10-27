@@ -7,5 +7,5 @@ public:
 	Printi();
 	virtual ~Printi();
 	int execute();
-}
+};
 #endif

@@ -7,5 +7,5 @@ public:
 	Peeki();
 	virtual ~Peeki();
 	int execute();
-}
+};
 #endif

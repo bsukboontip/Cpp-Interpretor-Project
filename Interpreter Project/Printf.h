@@ -7,5 +7,5 @@ public:
 	Printf();
 	virtual ~Printf();
 	int execute();
-}
+};
 #endif

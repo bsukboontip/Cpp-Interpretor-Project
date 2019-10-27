@@ -7,5 +7,5 @@ public:
 	Peekf();
 	virtual ~Peekf();
 	int execute();
-}
+};
 #endif

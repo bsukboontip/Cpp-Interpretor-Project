@@ -7,5 +7,5 @@ public:
 	Div();
 	virtual ~Div();
 	int execute();
-}
+};
 #endif

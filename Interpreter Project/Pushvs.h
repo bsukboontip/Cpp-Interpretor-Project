@@ -7,5 +7,5 @@ public:
 	Pushvs();
 	virtual ~Pushvs();
 	int execute();
-}
+};
 #endif
