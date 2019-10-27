@@ -78,7 +78,7 @@ int main(void) {
 	int pc = 0;
 	int sp = -1;
 	int fpsp = -1;
-	vector<Values>rstack;
+	vector<Value>rstack;
 	stack <int> fpstack;
 
 	MemoryObject* theOne[inputSize];

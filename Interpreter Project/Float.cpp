@@ -13,17 +13,17 @@ Float::~Float() {}
 
 char Float::getChar() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 short Float::getShort() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 int Float::getInt() {
 	error = true;
-	return NULL;
+	return 0;
 }
 
 float Float::getFloat() {
@@ -32,5 +32,5 @@ float Float::getFloat() {
 
 int Float::execute() {
 	error = true;
-	return NULL;
+	return 0;
 }

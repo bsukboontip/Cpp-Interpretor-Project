@@ -12,7 +12,8 @@ Short::Short(bool x) {
 Short::~Short() {}
 
 char Short::getChar() {
-	return c;
+	error = true;
+	return 0;
 }
 
 short Short::getShort() {
@@ -20,14 +21,16 @@ short Short::getShort() {
 }
 
 int Short::getInt() {
-	return i;
+	error = true;
+	return 0;
 }
 
 float Short::getFloat() {
-	return f;
+	error = true;
+	return 0;
 }
 
 int Short::execute() {
 	error = true;
-	return NULL;
+	return 0;
 }
