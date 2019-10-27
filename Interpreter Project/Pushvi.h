@@ -7,5 +7,5 @@ public:
 	Pushvi();
 	virtual ~Pushvi();
 	int execute();
-}
+};
 #endif

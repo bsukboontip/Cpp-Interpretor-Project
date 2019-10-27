@@ -7,5 +7,5 @@ public:
 	Cmplt();
 	virtual ~Cmplt();
 	int execute();
-}
+};
 #endif

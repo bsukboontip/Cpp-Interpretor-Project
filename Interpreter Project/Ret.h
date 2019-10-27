@@ -7,5 +7,5 @@ public:
 	Ret();
 	virtual ~Ret();
 	int execute();
-}
+};
 #endif

@@ -7,5 +7,5 @@ public:
 	Pokec();
 	virtual ~Pokec();
 	int execute();
-}
+};
 #endif

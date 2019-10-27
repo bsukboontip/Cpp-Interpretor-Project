@@ -7,5 +7,5 @@ public:
 	Call();
 	virtual ~Call();
 	int execute();
-}
+};
 #endif

@@ -7,5 +7,5 @@ public:
 	Cmpe();
 	virtual ~Cmpe();
 	int execute();
-}
+};
 #endif

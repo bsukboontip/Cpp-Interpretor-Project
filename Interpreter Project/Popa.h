@@ -7,5 +7,5 @@ public:
 	Popa();
 	virtual ~Popa();
 	int execute();
-}
+};
 #endif

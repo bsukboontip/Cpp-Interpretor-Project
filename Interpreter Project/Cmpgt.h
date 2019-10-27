@@ -7,5 +7,5 @@ public:
 	Cmpgt();
 	virtual ~Cmpgt();
 	int execute();
-}
+};
 #endif

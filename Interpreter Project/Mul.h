@@ -7,4 +7,5 @@ public:
 	Mul();
 	virtual ~Mul();
 	int execute();
-}
+};
+#endif

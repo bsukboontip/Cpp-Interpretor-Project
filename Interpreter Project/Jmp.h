@@ -7,5 +7,5 @@ public:
 	Jmp();
 	virtual ~Jmp();
 	int execute();
-}
+};
 #endif

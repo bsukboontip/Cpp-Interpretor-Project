@@ -7,5 +7,5 @@ public:
 	Pokes();
 	virtual ~Pokes();
 	int execute();
-}
+};
 #endif

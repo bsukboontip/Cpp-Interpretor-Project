@@ -7,5 +7,5 @@ public:
 	Jmpc();
 	virtual ~Jmpc();
 	int execute();
-}
+};
 #endif

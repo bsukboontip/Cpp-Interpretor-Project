@@ -7,5 +7,5 @@ public:
 	Swp();
 	virtual ~Swp();
 	int execute();
-}
+};
 #endif

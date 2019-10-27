@@ -7,5 +7,5 @@ public:
 	Pokei();
 	virtual ~Pokei();
 	int execute();
-}
+};
 #endif

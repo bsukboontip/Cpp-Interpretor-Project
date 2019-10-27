@@ -7,5 +7,5 @@ public:
 	Halt();
 	virtual ~Halt();
 	int execute();
-}
+};
 #endif
