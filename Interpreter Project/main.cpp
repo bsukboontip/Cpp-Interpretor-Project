@@ -12,6 +12,42 @@
 #include "Short.h"
 #include "Int.h"
 #include "Float.h"
+
+#include "Add.h"
+#include "Sub.h"
+#include "Mul.h"
+#include "Div.h"
+
+#include "Printc.h"
+#include "Printf.h"
+#include "Prints.h"
+#include "Printi.h"
+
+#include "Cmpe.h"
+#include "Cmplt.h"
+#include "Cmpgt.h"
+
+#include "Jmp.h"
+#include "Jmpc.h"
+#include "Call.h"
+#include "Ret.h"
+
+#include "Pushv.h"
+#include "Pushf.h"
+#include "Pushi.h"
+#include "Push.s"
+#include "Popm.h"
+#include "Popv.h"
+#include "Popa.h"
+#include "Peekc.h"
+#include "Peekf.h"
+#include "Peeki.h"
+#include "Peeks.h"
+#include "Pokec.h"
+#include "Pokef.h"
+#include "Pokei.h"
+#include "Pokes.h"
+
 using namespace std;
 
 int main(void) {

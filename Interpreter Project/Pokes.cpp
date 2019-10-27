@@ -5,5 +5,5 @@ Pokes::Pokes(){}
 Pokes::~Pokes(){}
 
 int Pokes::execute(){
-	
+	return 0;
 }

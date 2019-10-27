@@ -5,5 +5,5 @@ Printf::Printf(){}
 Printf::~Printf(){}
 
 int Printf::execute(){
-	
+	return 0;
 }

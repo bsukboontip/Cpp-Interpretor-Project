@@ -5,5 +5,5 @@ Printc::Printc(){}
 Printc::~Printc(){}
 
 int Printc::execute(){
-	
+	return 0;
 }
