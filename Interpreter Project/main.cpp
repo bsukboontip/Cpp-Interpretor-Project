@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cstring>
 #include "MemoryObject.h"
 #include "Value.h"
 #include "ByteCode.h"
@@ -117,8 +118,11 @@ int main(void) {
 			theOne[pc] = new Pushs();
 			theOne[++pc] = new Short();
 
-			short shortBytes = (short)((unsigned char)(memory[pc] << 8) |
-										(unsigned char)(memory[pc + 1]));
+			// short shortBytes = (short)((unsigned char)(memory[pc] << 8) |
+			// 							(unsigned char)(memory[pc + 1]));
+
+			short shortBytes;
+			memcpy(&shortBytes, memory + pc * sizeof(char), sizeof(short));
 
 			theOne[pc]->s = shortBytes;
 			theOne[++pc] = new Short(true);
@@ -131,11 +135,17 @@ int main(void) {
 			// 	cout << (int)memory[i] << endl;
 			// }
 
-			int integer = (int)((unsigned char)(memory[pc]) << 24 |
-								(unsigned char)(memory[pc + 1] << 16) |
-								(unsigned char)(memory[pc + 2] << 8) |
-								(unsigned char)(memory[pc + 3]));
+			// int integer = (int)((unsigned char)(memory[pc]) << 24 |
+			// 					(unsigned char)(memory[pc + 1] << 16) |
+			// 					(unsigned char)(memory[pc + 2] << 8) |
+			// 					(unsigned char)(memory[pc + 3]));
 	
+			// cout << integer << endl;
+
+			int integer;
+			memcpy(&integer, memory + pc * sizeof(char), sizeof(int));
+			// char test[4] = {0, 0, 0, 16};
+			// memcpy(&integer1, test, sizeof(int));
 			// cout << integer << endl;
 			
 			theOne[pc]->i = integer;
@@ -147,10 +157,13 @@ int main(void) {
 			theOne[pc] = new Pushf();
 			theOne[++pc] = new Float();
 
-			float floatByte = (float)((unsigned char)(memory[pc]) << 24 |
-								(unsigned char)(memory[pc + 1] << 16) |
-								(unsigned char)(memory[pc + 2] << 8) |
-								(unsigned char)(memory[pc + 3]));
+			// float floatByte = (float)((unsigned char)(memory[pc]) << 24 |
+			// 					(unsigned char)(memory[pc + 1] << 16) |
+			// 					(unsigned char)(memory[pc + 2] << 8) |
+			// 					(unsigned char)(memory[pc + 3]));
+
+			float floatByte;
+			memcpy(&floatByte, memory + pc * sizeof(char), sizeof(float));
 
 			theOne[pc]->f = floatByte;
 			theOne[++pc] = new Float(true);
