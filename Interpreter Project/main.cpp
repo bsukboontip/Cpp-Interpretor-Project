@@ -281,39 +281,40 @@ int main(void) {
 	StackValues* newStack;
 	pc = 0;
 	
-	// while(pc != -1) {
-	// 	if (pc == 68) {
-	// 		newStack = new StackValues(theOne[pc + 1]->getChar());
-	// 		rstack.push_back(newStack);
-	// 		sp += 1;
-	// 		pc += 2;
-	// 	}
-	// 	else if (pc == 69) {
-	// 		newStack = new StackValues(theOne[pc + 1]->getShort());
-	// 		rstack.push_back(newStack);
-	// 		sp += 1;
-	// 		pc += 3;
-	// 	}
-	// 	else if (pc == 70) {
-	// 		newStack = new StackValues(theOne[pc + 1]->getInt());
-	// 		rstack.push_back(newStack);
-	// 		pc += 5;
-	// 		sp += 1;
-	// 	}
-	// 	else if (pc == 71) {
-	// 		newStack = new StackValues(theOne[pc + 1]->getFloat());
-	// 		rstack.push_back(newStack);
-	// 		pc += 5;
-	// 		sp += 1;
-	// 	}
-	// 	else {
-	// 		// pc++;
-	// 		pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
+	while(pc != -1) {
+		cout << pc << (int)memory[pc] << endl;
+		if (memory[pc] == 68) {
+			newStack = new StackValues(theOne[pc + 1]->getChar());
+			rstack.push_back(newStack);
+			sp += 1;
+			pc += 2;
+		}
+		else if (memory[pc] == 69) {
+			newStack = new StackValues(theOne[pc + 1]->getShort());
+			rstack.push_back(newStack);
+			sp += 1;
+			pc += 3;
+		}
+		else if (memory[pc] == 70) {
+			newStack = new StackValues(theOne[pc + 1]->getInt());
+			rstack.push_back(newStack);
+			pc += 5;
+			sp += 1;
+		}
+		else if (memory[pc] == 71) {
+			newStack = new StackValues(theOne[pc + 1]->getFloat());
+			rstack.push_back(newStack);
+			pc += 5;
+			sp += 1;
+		}
+		else {
+			pc++;
+			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
+			// cout << pc << endl;
+		}
+	}
 
-	// 	}
-	// }
-
-	cout << rstack.size() << endl;
+	// cout << rstack.size() << endl;
 	cout << "HELLO" << endl;
 
 	fclose(inputF);
