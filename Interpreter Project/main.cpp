@@ -313,8 +313,8 @@ int main(void) {
 		}
 		else {
 			// pc++;
-			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 			cout << pc << " pc: " << (int)memory[pc] << endl;
+			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 		}
 		count++;
 	}
