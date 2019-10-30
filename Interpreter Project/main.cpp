@@ -138,8 +138,6 @@ int main(void) {
 			// for (i = i; i < i + 4; i++) {
 			// 	cout << (int)memory[i] << endl;
 			// }
-
-
 	
 			// cout << integer << endl;
 
