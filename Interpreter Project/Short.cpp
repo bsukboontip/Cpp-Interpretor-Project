@@ -30,7 +30,7 @@ float Short::getFloat() {
 	return 0;
 }
 
-int Short::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int fpsp, int pc) {
+int Short::execute(vector<StackValues*>, vector<int>, int, int, int) {
 	error = true;
 	return 0;
 }
