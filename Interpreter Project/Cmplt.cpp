@@ -4,6 +4,6 @@
 Cmplt::Cmplt(){}
 Cmplt::~Cmplt(){}
 
-int Cmplt::execute(){
+int Cmplt::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

@@ -6,6 +6,6 @@ class Cmpe : public ByteCode {
 public:
 	Cmpe();
 	virtual ~Cmpe();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

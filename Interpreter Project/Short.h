@@ -15,7 +15,7 @@ public:
 	short getShort();
 	int getInt();
 	float getFloat();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 
 };
 #endif

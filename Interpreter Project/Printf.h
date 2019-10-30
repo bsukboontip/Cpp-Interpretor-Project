@@ -6,6 +6,6 @@ class Printf : public ByteCode {
 public:
 	Printf();
 	virtual ~Printf();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

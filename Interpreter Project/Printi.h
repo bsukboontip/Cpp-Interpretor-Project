@@ -6,6 +6,6 @@ class Printi : public ByteCode {
 public:
 	Printi();
 	virtual ~Printi();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

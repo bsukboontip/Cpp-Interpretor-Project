@@ -3,6 +3,6 @@
 Pushvc::Pushvc(){}
 Pushvc::~Pushvc(){}
 
-int Pushvc::execute(){
+int Pushvc::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

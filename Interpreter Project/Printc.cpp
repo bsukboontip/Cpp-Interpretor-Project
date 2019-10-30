@@ -4,6 +4,6 @@
 Printc::Printc(){}
 Printc::~Printc(){}
 
-int Printc::execute(){
+int Printc::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

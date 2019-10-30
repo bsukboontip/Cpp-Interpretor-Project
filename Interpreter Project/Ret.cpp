@@ -4,6 +4,6 @@
 Ret::Ret(){}
 Ret::~Ret(){}
 
-int Ret::execute(){
+int Ret::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

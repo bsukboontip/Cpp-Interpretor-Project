@@ -3,6 +3,6 @@
 Call::Call(){}
 Call::~Call(){}
 
-int Call::execute(){
+int Call::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;	
 }

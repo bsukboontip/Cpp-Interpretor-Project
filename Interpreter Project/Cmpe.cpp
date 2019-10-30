@@ -4,6 +4,6 @@
 Cmpe::Cmpe(){}
 Cmpe::~Cmpe(){}
 
-int Cmpe::execute(){
+int Cmpe::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

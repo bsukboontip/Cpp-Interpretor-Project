@@ -6,6 +6,6 @@ class Swp : public ByteCode {
 public:
 	Swp();
 	virtual ~Swp();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

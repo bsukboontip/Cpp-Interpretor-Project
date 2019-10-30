@@ -6,6 +6,6 @@ class Pokei : public ByteCode {
 public:
 	Pokei();
 	virtual ~Pokei();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

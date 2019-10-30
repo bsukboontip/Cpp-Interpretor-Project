@@ -4,6 +4,6 @@
 Swp::Swp(){}
 Swp::~Swp(){}
 
-int Swp::execute(){
+int Swp::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }
