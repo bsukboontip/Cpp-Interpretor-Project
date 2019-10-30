@@ -306,7 +306,7 @@ int main(void) {
 			sp += 1;
 		}
 		else {
-			pc++;
+			// pc++;
 			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 			// cout << pc << endl;
 		}
