@@ -83,6 +83,7 @@ int main(void) {
 	int pc = 0;
 	int i;
 	MemoryObject* theOne[inputSize];
+	MemoryObject* newOne;
 
 	for (i = 0; i < inputSize; i++) {
 		if (memory[i] == 132) {
@@ -235,7 +236,8 @@ int main(void) {
 		}
 
 		else if (memory[i] == 100) {
-			theOne[i] = new Add();
+			newOne = new Add();
+			theOne[i] = newOne;
 		}
 
 		else if (memory[i] == 104) {
@@ -269,9 +271,25 @@ int main(void) {
 
 
 	pc = 0;
+	/*
 	while(pc != -1) {
 		pc = theOne[0]->execute(rstack, fpstack, sp, fpsp, pc);
+	}*/
+
+	// MemoryObject* test;
+	vector<int> rstack2;
+	rstack2.push_back(1);
+	rstack2.push_back(2);
+	int k;
+	for(k =0; k <2; k++) {
+		cout << rstack2[k] <<endl;
 	}
+	// test[0] = new Add();
+	// sp
+	// pc = test[0]->add(rstack)
+
+
+
 
 	fclose(inputF);
 	free(memory);
