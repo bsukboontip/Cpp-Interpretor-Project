@@ -4,6 +4,6 @@
 Pushi::Pushi(){}
 Pushi::~Pushi(){}
 
-int Pushi::execute(){
+int Pushi::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

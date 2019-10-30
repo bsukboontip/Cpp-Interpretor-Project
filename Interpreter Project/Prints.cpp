@@ -4,6 +4,6 @@
 Prints::Prints(){}
 Prints::~Prints(){}
 
-int Prints::execute(){
+int Prints::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

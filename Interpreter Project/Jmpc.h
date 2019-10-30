@@ -6,6 +6,6 @@ class Jmpc : public ByteCode {
 public:
 	Jmpc();
 	virtual ~Jmpc();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

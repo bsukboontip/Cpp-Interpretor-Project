@@ -6,6 +6,6 @@ class Mul : public ByteCode {
 public:
 	Mul();
 	virtual ~Mul();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

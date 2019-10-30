@@ -3,6 +3,6 @@
 Pokec::Pokec(){}
 Pokec::~Pokec(){}
 
-int Pokec::execute(){
+int Pokec::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

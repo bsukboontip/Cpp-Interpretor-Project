@@ -4,6 +4,6 @@
 Pokes::Pokes(){}
 Pokes::~Pokes(){}
 
-int Pokes::execute(){
+int Pokes::execute(vector<StackValues*>, stack<int>, int, int){
 	return 0;
 }

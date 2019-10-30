@@ -6,6 +6,6 @@ class Peekc : public ByteCode {
 public:
 	Peekc();
 	virtual ~Peekc();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

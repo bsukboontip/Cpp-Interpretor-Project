@@ -6,6 +6,6 @@ class Cmpgt : public ByteCode {
 public:
 	Cmpgt();
 	virtual ~Cmpgt();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

@@ -26,12 +26,11 @@ public:
 	// static vector<Value>rstack;
 	// static stack<int>fpstack;
 
-	virtual int execute(vector<StackValues>, stack<int>, int, int) = 0;
+	virtual int execute(vector<StackValues*>, stack<int>, int, int) = 0;
 	virtual char getChar() = 0;
 	virtual short getShort() = 0;
 	virtual int getInt() = 0;
 	virtual float getFloat() = 0;
 
 };
-
 #endif

@@ -76,7 +76,9 @@ int main(void) {
 	int sp = -1;
 	int fpsp = -1;
 	stack <int> fpstack;
-	vector<StackValues> rstack;
+	vector<StackValues*> rstack;
+	StackValues* newStack = new StackValues();
+	rstack.push_back(newStack);
 	
 	int pc = 0;
 	int i;

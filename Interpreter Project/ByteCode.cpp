@@ -23,7 +23,7 @@ float ByteCode::getFloat() {
 	return 0;
 }
 
-int ByteCode::execute(vector<StackValues> rstack, stack<int> fpstack, int sp, int fpsp) {
+int ByteCode::execute(vector<StackValues*> rstack, stack<int> fpstack, int sp, int fpsp) {
 	int pc = 0;
 	return pc;
 }

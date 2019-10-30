@@ -6,6 +6,6 @@ class Jmp : public ByteCode {
 public:
 	Jmp();
 	virtual ~Jmp();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

@@ -6,6 +6,6 @@ class Popv : public ByteCode {
 public:
 	Popv();
 	virtual ~Popv();
-	int execute();
+	int execute(vector<StackValues*>, stack<int>, int, int);
 };
 #endif

@@ -1,9 +1,7 @@
 #include "StackValues.h"
 
 StackValues::StackValues() {
-	error = false;
 }
-
 
 StackValues::~StackValues() {}
 
