@@ -50,6 +50,7 @@
 #include "Pokei.h"
 #include "Pokes.h"
 #include "Swp.h"
+#include "StackValues.h"
 
 using namespace std;
 
@@ -74,8 +75,9 @@ int main(void) {
 
 	int sp = -1;
 	int fpsp = -1;
-	vector<Value>rstack;
 	stack <int> fpstack;
+	vector<StackValues> rstack;
+	
 	int pc = 0;
 
 	MemoryObject* theOne[inputSize];
@@ -268,7 +270,10 @@ int main(void) {
 		}
 	}
 
-	pc = theOne[pc]->execute();
+	pc = 0;
+	while(pc != -1) {
+		pc = theOne[0]->execute(rstack, fpstack, sp, fpsp);
+	}
 
 	fclose(inputF);
 	free(memory);

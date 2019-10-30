@@ -29,7 +29,7 @@ float Value::getFloat() {
 	return 0;
 }
 
-int Value::execute() {
+int Value::execute(vector<StackValues> rstack, stack<int> fpstack, int sp, int fpsp) {
 	error = true;
 	return 0;
 }
