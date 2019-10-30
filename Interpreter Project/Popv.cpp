@@ -4,6 +4,6 @@
 Popv::Popv(){}
 Popv::~Popv(){}
 
-int Popv::execute(vector<StackValues*>, stack<int>, int, int, int){
+int Popv::execute(vector<StackValues*>, vector<int>, int, int, int){
 	return 0;
 }
