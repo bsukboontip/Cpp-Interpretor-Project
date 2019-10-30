@@ -6,6 +6,6 @@ class Popa : public ByteCode {
 public:
 	Popa();
 	virtual ~Popa();
-	int execute(vector<StackValues*>, stack<int>, int, int);
+	int execute(vector<StackValues*>, stack<int>, int, int, int);
 };
 #endif

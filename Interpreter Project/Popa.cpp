@@ -4,6 +4,6 @@
 Popa::Popa(){}
 Popa::~Popa(){}
 
-int Popa::execute(vector<StackValues*>, stack<int>, int, int){
+int Popa::execute(vector<StackValues*>, stack<int>, int, int, int){
 	return 0;
 }

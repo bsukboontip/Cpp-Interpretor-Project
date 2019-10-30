@@ -6,6 +6,6 @@ class Pushvs : public ByteCode {
 public:
 	Pushvs();
 	virtual ~Pushvs();
-	int execute(vector<StackValues*>, stack<int>, int, int);
+	int execute(vector<StackValues*>, stack<int>, int, int, int);
 };
 #endif

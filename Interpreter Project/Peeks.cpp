@@ -3,6 +3,6 @@
 Peeks::Peeks(){}
 Peeks::~Peeks(){}
 
-int Peeks::execute(vector<StackValues*>, stack<int>, int, int){
+int Peeks::execute(vector<StackValues*>, stack<int>, int, int, int){
 	return 0;
 }

@@ -31,7 +31,7 @@ float Int::getFloat() {
 	return 0;
 }
 
-int Int::execute(vector<StackValues*>, stack<int>, int, int) {
+int Int::execute(vector<StackValues*>, stack<int>, int, int, int) {
 	error = true;
 	return 0;
 }
