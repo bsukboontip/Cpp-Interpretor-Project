@@ -278,20 +278,20 @@ int main(void) {
 
 	StackValues* newStack;
 	pc = 0;
-	cout << theOne[pc+1]->getInt() << endl;
-	newStack = new StackValues(theOne[pc+1]->getInt());
-	rstack.push_back(newStack);
-	pc += 5;
-	sp += 1;
-	cout << "pc:" << pc<< endl;
-	cout << "sp:" << sp<< endl;
-	cout << rstack[sp]->type <<endl;
-	cout << rstack[sp]->i <<endl;
+	// cout << theOne[pc+1]->getInt() << endl;
+	// newStack = new StackValues(theOne[pc+1]->getInt());
+	// rstack.push_back(newStack);
+	// pc += 5;
+	// sp += 1;
+	// cout << "pc:" << pc<< endl;
+	// cout << "sp:" << sp<< endl;
+	// cout << rstack[sp]->type <<endl;
+	// cout << rstack[sp]->i <<endl;
 
-	/*
-	while(pc != -1) {
-		cout <<  pc << (int)memory[pc] << endl;
-		// cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
+
+	while(pc < 16) {
+		// cout <<  pc << (int)memory[pc] << endl;
+		cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
 
 		if (memory[pc] == 68) {
 			newStack = new StackValues(theOne[pc + 1]->getChar());
@@ -323,15 +323,15 @@ int main(void) {
 			// cout << pc << endl;
 		}
 
-		// cout << rstack.back()->type << endl;
+		cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
+		cout << "pc = " << pc << endl;
 	}
+
 
 	// int k;
 	// for (k =0; k< inputSize ; k++) {
 	// 	cout << "memory[" << k << "] : " << int(memory[k]) <<endl;
 	// }
-*/
-
 
 	// cout << rstack.size() << endl;
 	cout << "HELLO" << endl;

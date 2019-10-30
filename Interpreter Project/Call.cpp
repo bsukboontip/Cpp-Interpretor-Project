@@ -10,6 +10,6 @@ int Call::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int 
 	pc = rstack[sp--]->getInt();
 	rstack.pop_back();
 	rstack.pop_back();
-
+	
 	return pc;	
 }
