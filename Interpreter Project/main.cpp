@@ -269,20 +269,33 @@ int main(void) {
 		}
 	}
 
-
+	StackValues* newStack;
 	pc = 0;
-	/*
+	
 	while(pc != -1) {
-		pc = theOne[0]->execute(rstack, fpstack, sp, fpsp, pc);
-	}*/
-
-	// MemoryObject* test;
-	vector<int> rstack2;
-	rstack2.push_back(1);
-	rstack2.push_back(2);
-	int k;
-	for(k =0; k <2; k++) {
-		cout << rstack2[k] <<endl;
+		if (pc == 68) {
+			newStack = new StackValues(theOne[pc + 1]->getChar());
+			rstack.push_back(newStack);
+			pc += 2;
+		}
+		else if (pc == 69) {
+			newStack = new StackValues(theOne[pc + 1]->getShort());
+			rstack.push_back(newStack);
+			pc += 3;
+		}
+		else if (pc == 70) {
+			newStack = new StackValues(theOne[pc + 1]->getInt());
+			rstack.push_back(newStack);
+			pc += 5;
+		}
+		else if (pc == 71) {
+			newStack = new StackValues(theOne[pc + 1]->getFloat());
+			rstack.push_back(newStack);
+			pc += 5;
+		}
+		else {
+			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
+		}
 	}
 	// test[0] = new Add();
 	// sp

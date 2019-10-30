@@ -4,6 +4,6 @@
 Jmp::Jmp(){}
 Jmp::~Jmp(){}
 
-int Jmp::execute(vector<StackValues*>, stack<int>, int, int){
+int Jmp::execute(vector<StackValues*>, stack<int>, int, int, int){
 	return 0;
 }

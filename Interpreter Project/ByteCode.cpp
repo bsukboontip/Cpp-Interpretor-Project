@@ -24,6 +24,5 @@ float ByteCode::getFloat() {
 }
 
 int ByteCode::execute(vector<StackValues*> rstack, stack<int> fpstack, int sp, int fpsp, int pc) {
-	int pc = 0;
 	return pc;
 }
