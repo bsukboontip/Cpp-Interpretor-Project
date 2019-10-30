@@ -57,7 +57,8 @@ using namespace std;
 
 int main(void) {
 
-	FILE *inputF = fopen("interpreter_input.smp", "rb");
+	// FILE *inputF = fopen("interpreter_input.smp", "rb");
+	FILE *inputF = fopen("36_jmp_test.smp", "rb");
 	fseek(inputF, 0, SEEK_END);
 	long inputSize = ftell(inputF);
 	rewind(inputF);
@@ -88,6 +89,8 @@ int main(void) {
 	MemoryObject* newOne;
 
 	for (i = 0; i < inputSize; i++) {
+		cout << (int)memory[i] << " pc: "<< i << endl;
+		// cout << i << endl;
 		if (memory[i] == 132) {
 			theOne[i] = new Cmpe();
 		}
@@ -126,7 +129,7 @@ int main(void) {
 			theOne[++i] = new Short();
 
 			short shortBytes;
-			memcpy(&shortBytes, memory + pc * sizeof(char), sizeof(short));
+			memcpy(&shortBytes, memory + i * sizeof(char), sizeof(short));
 
 			theOne[i]->s = shortBytes;
 			theOne[++i] = new Short(true);
@@ -142,10 +145,11 @@ int main(void) {
 			// cout << integer << endl;
 
 			int integer;
-			memcpy(&integer, memory + pc * sizeof(char), sizeof(int));
-			// char test[4] = {0, 0, 0, 16};
+			memcpy(&integer, memory + i * sizeof(char), sizeof(int));
+			// int integer1;
+			// char test[4] = {16, 0, 0, 0};
 			// memcpy(&integer1, test, sizeof(int));
-			// cout << integer << endl;
+			cout << "int: " << integer << endl;
 			
 			theOne[i]->i = integer;
 			theOne[++i] = new Int(true);
@@ -163,7 +167,7 @@ int main(void) {
 			// 					(unsigned char)(memory[pc + 3]));
 
 			float floatByte;
-			memcpy(&floatByte, memory + pc * sizeof(char), sizeof(float));
+			memcpy(&floatByte, memory + i * sizeof(char), sizeof(float));
 
 			theOne[i]->f = floatByte;
 			theOne[++i] = new Float(true);
@@ -272,15 +276,16 @@ int main(void) {
 			newOne = new Halt();
 			theOne[i] = newOne;
 			// theOne[i] = new Halt();
-			cout << "halted " << i << endl;
+			// cout << "halted " << i << endl;
 		}
 	}
 
 	StackValues* newStack;
+	cout << "BREAK" << endl;
 	pc = 0;
-	
-	while(pc != -1) {
-		cout << pc << (int)memory[pc] << endl;
+	int count = 0;
+	while(pc != -1 && count < 15) {
+		// cout << pc << (int)memory[pc] << endl;
 		if (memory[pc] == 68) {
 			newStack = new StackValues(theOne[pc + 1]->getChar());
 			rstack.push_back(newStack);
@@ -298,6 +303,7 @@ int main(void) {
 			rstack.push_back(newStack);
 			pc += 5;
 			sp += 1;
+			cout << "PC: " << pc << endl;
 		}
 		else if (memory[pc] == 71) {
 			newStack = new StackValues(theOne[pc + 1]->getFloat());
@@ -308,12 +314,13 @@ int main(void) {
 		else {
 			// pc++;
 			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
-			// cout << pc << endl;
+			cout << pc << " pc: " << (int)memory[pc] << endl;
 		}
+		count++;
 	}
 
 	// cout << rstack.size() << endl;
-	cout << "HELLO" << endl;
+	// cout << "HELLO" << endl;
 
 	fclose(inputF);
 	free(memory);
