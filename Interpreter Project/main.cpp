@@ -146,12 +146,7 @@ int main(void) {
 
 			int integer;
 			memcpy(&integer, memory + i * sizeof(char), sizeof(int));
-<<<<<<< HEAD
-			// char test[4] = {0, 0, 0, 16};
-=======
-			// int integer1;
-			// char test[4] = {16, 0, 0, 0};
->>>>>>> 59cbf2290bc20a2411f44af8741c61bbf796dd68
+
 			// memcpy(&integer1, test, sizeof(int));
 			cout << "int: " << integer << endl;
 			
@@ -309,7 +304,7 @@ int main(void) {
 			rstack.push_back(newStack);
 			pc += 5;
 			sp += 1;
-			cout << "PC: " << pc << endl;
+			// cout << "PC: " << pc << endl;
 		}
 		else if (memory[pc] == 71) {
 			newStack = new StackValues(theOne[pc + 1]->getFloat());
@@ -319,13 +314,13 @@ int main(void) {
 		}
 		else {
 			// pc++;
-			cout << pc << " pc: " << (int)memory[pc] << endl;
+			// cout << pc << " pc: " << (int)memory[pc] << endl;
 			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 		}
 		count++;
 		cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
 		cout << "pc = " << pc << endl;
-
+		cout << "count = " << count << endl;
 	}
 
 
@@ -335,7 +330,7 @@ int main(void) {
 	// }
 
 	// cout << rstack.size() << endl;
-	// cout << "HELLO" << endl;
+	cout << "OUT OF THE LOOP" << endl;
 
 	fclose(inputF);
 	free(memory);
