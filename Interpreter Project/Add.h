@@ -6,6 +6,6 @@ class Add : public ByteCode {
 public:
 	Add();
 	virtual ~Add();
-	int execute(vector<StackValues*>, stack<int>, int, int);
+	int execute(vector<StackValues*>, stack<int>, int, int, int);
 };
 #endif

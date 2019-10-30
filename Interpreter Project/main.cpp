@@ -77,8 +77,8 @@ int main(void) {
 	int fpsp = -1;
 	stack <int> fpstack;
 	vector<StackValues*> rstack;
-	StackValues* newStack = new StackValues();
-	rstack.push_back(newStack);
+	// StackValues* newStack = new StackValues();
+	// rstack.push_back(newStack);
 	
 	int pc = 0;
 	int i;
@@ -270,7 +270,7 @@ int main(void) {
 
 	pc = 0;
 	while(pc != -1) {
-		pc = theOne[0]->execute(rstack, fpstack, sp, fpsp);
+		pc = theOne[0]->execute(rstack, fpstack, sp, fpsp, pc);
 	}
 
 	fclose(inputF);
