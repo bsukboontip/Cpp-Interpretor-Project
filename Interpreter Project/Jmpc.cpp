@@ -3,6 +3,32 @@
 Jmpc::Jmpc(){}
 Jmpc::~Jmpc(){}
 
-int Jmpc::execute(vector<StackValues*>, stack<int>, int, int, int){
-	return 0;
+int Jmpc::execute(vector<StackValues*> rstack, stack<int> fpstack, int sp, int fpsp, int pc){
+	
+	if (rstack[sp - 1]->getType() == 'c') {
+		if (rstack[sp - 1]->getChar()) {
+			pc = rstack[sp]->getInt();
+		}
+	}
+	else if (rstack[sp - 1]->getType() == 's') {
+		if (rstack[sp - 1]->getShort()) {
+			pc = rstack[sp]->getInt();
+		}
+	}
+	else if (rstack[sp - 1]->getType() == 'i') {
+		if (rstack[sp - 1]->getInt()) {
+			pc = rstack[sp]->getInt();
+		}
+	}
+	else if (rstack[sp - 1]->getType() == 'f') {
+		if (rstack[sp - 1]->getFloat()) {
+			pc = rstack[sp]->getInt();
+		}
+	}
+
+	rstack.pop_back();
+	rstack.pop_back();
+	sp -= 2;
+
+	return pc;
 }
