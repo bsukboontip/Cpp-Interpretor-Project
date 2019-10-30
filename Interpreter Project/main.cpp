@@ -50,6 +50,7 @@
 #include "Pokei.h"
 #include "Pokes.h"
 #include "Swp.h"
+#include "Halt.h"
 #include "StackValues.h"
 
 using namespace std;
@@ -83,6 +84,7 @@ int main(void) {
 	int pc = 0;
 	int i;
 	MemoryObject* theOne[inputSize];
+	// cout << inputSize << endl;
 	MemoryObject* newOne;
 
 	for (i = 0; i < inputSize; i++) {
@@ -267,42 +269,52 @@ int main(void) {
 		else if (memory[i] == 147) {
 			theOne[i] = new Printf();
 		}
+
+		else if (memory[i] == 0) {
+			newOne = new Halt();
+			theOne[i] = newOne;
+			// theOne[i] = new Halt();
+			cout << "halted " << i << endl;
+		}
 	}
 
 	StackValues* newStack;
 	pc = 0;
 	
-	while(pc != -1) {
-		if (pc == 68) {
-			newStack = new StackValues(theOne[pc + 1]->getChar());
-			rstack.push_back(newStack);
-			pc += 2;
-		}
-		else if (pc == 69) {
-			newStack = new StackValues(theOne[pc + 1]->getShort());
-			rstack.push_back(newStack);
-			pc += 3;
-		}
-		else if (pc == 70) {
-			newStack = new StackValues(theOne[pc + 1]->getInt());
-			rstack.push_back(newStack);
-			pc += 5;
-		}
-		else if (pc == 71) {
-			newStack = new StackValues(theOne[pc + 1]->getFloat());
-			rstack.push_back(newStack);
-			pc += 5;
-		}
-		else {
-			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
-		}
-	}
-	// test[0] = new Add();
-	// sp
-	// pc = test[0]->add(rstack)
+	// while(pc != -1) {
+	// 	if (pc == 68) {
+	// 		newStack = new StackValues(theOne[pc + 1]->getChar());
+	// 		rstack.push_back(newStack);
+	// 		sp += 1;
+	// 		pc += 2;
+	// 	}
+	// 	else if (pc == 69) {
+	// 		newStack = new StackValues(theOne[pc + 1]->getShort());
+	// 		rstack.push_back(newStack);
+	// 		sp += 1;
+	// 		pc += 3;
+	// 	}
+	// 	else if (pc == 70) {
+	// 		newStack = new StackValues(theOne[pc + 1]->getInt());
+	// 		rstack.push_back(newStack);
+	// 		pc += 5;
+	// 		sp += 1;
+	// 	}
+	// 	else if (pc == 71) {
+	// 		newStack = new StackValues(theOne[pc + 1]->getFloat());
+	// 		rstack.push_back(newStack);
+	// 		pc += 5;
+	// 		sp += 1;
+	// 	}
+	// 	else {
+	// 		// pc++;
+	// 		pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 
+	// 	}
+	// }
 
-
+	cout << rstack.size() << endl;
+	cout << "HELLO" << endl;
 
 	fclose(inputF);
 	free(memory);
