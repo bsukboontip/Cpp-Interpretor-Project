@@ -4,6 +4,12 @@
 Popv::Popv(){}
 Popv::~Popv(){}
 
-int Popv::execute(vector<StackValues*>, stack<int>, int, int, int){
-	return 0;
+int Popv::execute(vector<StackValues*> rstack, vector<int>fpstack, int sp, int fpsp, int pc){
+	
+	rstack[fpstack.top() + rstack[sp] + 1] = rstack[sp-1];
+	sp-=2;
+	rstack.pop_back();
+	rstack.pop_back();
+	pc++;
+	return pc;
 }
