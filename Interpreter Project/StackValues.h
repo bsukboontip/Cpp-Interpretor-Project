@@ -9,6 +9,11 @@ public:
 	StackValues();
 	virtual ~StackValues();
 
+	StackValues(char);
+	StackValues(short);
+	StackValues(int);
+	StackValues(float);
+
 	char c;
 	short s;
 	int i;
