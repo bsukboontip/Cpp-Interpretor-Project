@@ -23,7 +23,7 @@ short Int::getShort() {
 
 int Int::getInt() {
 	error = true;
-	return 0;
+	return i;
 }
 
 float Int::getFloat() {

@@ -126,7 +126,7 @@ int main(void) {
 			theOne[++i] = new Short();
 
 			short shortBytes;
-			memcpy(&shortBytes, memory + pc * sizeof(char), sizeof(short));
+			memcpy(&shortBytes, memory + i * sizeof(char), sizeof(short));
 
 			theOne[i]->s = shortBytes;
 			theOne[++i] = new Short(true);
@@ -142,7 +142,7 @@ int main(void) {
 			// cout << integer << endl;
 
 			int integer;
-			memcpy(&integer, memory + pc * sizeof(char), sizeof(int));
+			memcpy(&integer, memory + i * sizeof(char), sizeof(int));
 			// char test[4] = {0, 0, 0, 16};
 			// memcpy(&integer1, test, sizeof(int));
 			// cout << integer << endl;
@@ -163,7 +163,7 @@ int main(void) {
 			// 					(unsigned char)(memory[pc + 3]));
 
 			float floatByte;
-			memcpy(&floatByte, memory + pc * sizeof(char), sizeof(float));
+			memcpy(&floatByte, memory + i * sizeof(char), sizeof(float));
 
 			theOne[i]->f = floatByte;
 			theOne[++i] = new Float(true);
@@ -278,9 +278,21 @@ int main(void) {
 
 	StackValues* newStack;
 	pc = 0;
-	
+	cout << theOne[pc+1]->getInt() << endl;
+	newStack = new StackValues(theOne[pc+1]->getInt());
+	rstack.push_back(newStack);
+	pc += 5;
+	sp += 1;
+	cout << "pc:" << pc<< endl;
+	cout << "sp:" << sp<< endl;
+	cout << rstack[sp]->type <<endl;
+	cout << rstack[sp]->i <<endl;
+
+	/*
 	while(pc != -1) {
-		cout << pc << (int)memory[pc] << endl;
+		cout <<  pc << (int)memory[pc] << endl;
+		// cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
+
 		if (memory[pc] == 68) {
 			newStack = new StackValues(theOne[pc + 1]->getChar());
 			rstack.push_back(newStack);
@@ -310,7 +322,16 @@ int main(void) {
 			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 			// cout << pc << endl;
 		}
+
+		// cout << rstack.back()->type << endl;
 	}
+
+	// int k;
+	// for (k =0; k< inputSize ; k++) {
+	// 	cout << "memory[" << k << "] : " << int(memory[k]) <<endl;
+	// }
+*/
+
 
 	// cout << rstack.size() << endl;
 	cout << "HELLO" << endl;

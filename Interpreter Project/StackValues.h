@@ -26,5 +26,6 @@ public:
 	virtual float getFloat();
 	virtual char getType();
 
+
 };
 #endif
