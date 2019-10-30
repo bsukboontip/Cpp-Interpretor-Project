@@ -76,186 +76,188 @@ int main(void) {
 	vector<Value>rstack;
 	stack <int> fpstack;
 	int pc = 0;
-
+	int i;
 	MemoryObject* theOne[inputSize];
 
-	for (pc = 0; pc < inputSize; pc++) {
-		if (memory[pc] == 132) {
-			theOne[pc] = new Cmpe();
+	for (i = 0; i < inputSize; i++) {
+		if (memory[i] == 132) {
+			theOne[i] = new Cmpe();
 		}
 
-		else if (memory[pc] == 136) {
-			theOne[pc] = new Cmplt();
+		else if (memory[i] == 136) {
+			theOne[i] = new Cmplt();
 		}
 
-		else if (memory[pc] == 140) {
-			theOne[pc] = new Cmpgt();
+		else if (memory[i] == 140) {
+			theOne[i] = new Cmpgt();
 		}
 
-		else if (memory[pc] == 36) {
-			theOne[pc] = new Jmp();
+		else if (memory[i] == 36) {
+			theOne[i] = new Jmp();
 		}
 
-		else if (memory[pc] == 40) {
-			theOne[pc] = new Jmpc();
+		else if (memory[i] == 40) {
+			theOne[i] = new Jmpc();
 		}
 
-		else if (memory[pc] == 44) {
-			theOne[pc] = new Call();
+		else if (memory[i] == 44) {
+			theOne[i] = new Call();
 		}
 
-		else if (memory[pc] == 48) {
-			theOne[pc] = new Ret();
+		else if (memory[i] == 48) {
+			theOne[i] = new Ret();
 		}
 
-		else if (memory[pc] == 68) {
-			theOne[pc] = new Pushc();
-			theOne[pc]->c = memory[pc];
-			theOne[++pc] = new Char();
+		else if (memory[i] == 68) {
+			theOne[i] = new Pushc();
+			theOne[i]->c = memory[i];
+			theOne[++i] = new Char();
 		}
-		else if (memory[pc] == 69) {
-			theOne[pc] = new Pushs();
-			theOne[++pc] = new Short();
+		else if (memory[i] == 69) {
+			theOne[i] = new Pushs();
+			theOne[++i] = new Short();
 
-			short shortBytes = (short)((unsigned char)(memory[pc] << 8) |
-										(unsigned char)(memory[pc + 1]));
+			short shortBytes = (short)((unsigned char)(memory[i] << 8) |
+										(unsigned char)(memory[i + 1]));
 
-			theOne[pc]->s = shortBytes;
-			theOne[++pc] = new Short(true);
+			theOne[i]->s = shortBytes;
+			theOne[++i] = new Short(true);
 		}
-		else if (memory[pc] == 70) {
-			theOne[pc] = new Pushi();
-			theOne[++pc] = new Int();
+		else if (memory[i] == 70) {
+			theOne[i] = new Pushi();
+			theOne[++i] = new Int();
 
-			// for (i = pc; i < pc + 4; i++) {
+			// for (i = i; i < i + 4; i++) {
 			// 	cout << (int)memory[i] << endl;
 			// }
 
-			int integer = (int)((unsigned char)(memory[pc]) << 24 |
-								(unsigned char)(memory[pc + 1] << 16) |
-								(unsigned char)(memory[pc + 2] << 8) |
-								(unsigned char)(memory[pc + 3]));
+			int integer = (int)((unsigned char)(memory[i]) << 24 |
+								(unsigned char)(memory[i + 1] << 16) |
+								(unsigned char)(memory[i + 2] << 8) |
+								(unsigned char)(memory[i + 3]));
 	
 			// cout << integer << endl;
 			
-			theOne[pc]->i = integer;
-			theOne[++pc] = new Int(true);
-			theOne[++pc] = new Int(true);
-			theOne[++pc] = new Int(true);
+			theOne[i]->i = integer;
+			theOne[++i] = new Int(true);
+			theOne[++i] = new Int(true);
+			theOne[++i] = new Int(true);
 		}
-		else if (memory[pc] == 71) {
-			theOne[pc] = new Pushf();
-			theOne[++pc] = new Float();
+		else if (memory[i] == 71) {
+			theOne[i] = new Pushf();
+			theOne[++i] = new Float();
 
-			float floatByte = (float)((unsigned char)(memory[pc]) << 24 |
-								(unsigned char)(memory[pc + 1] << 16) |
-								(unsigned char)(memory[pc + 2] << 8) |
-								(unsigned char)(memory[pc + 3]));
+			float floatByte = (float)((unsigned char)(memory[i]) << 24 |
+								(unsigned char)(memory[i + 1] << 16) |
+								(unsigned char)(memory[i + 2] << 8) |
+								(unsigned char)(memory[i + 3]));
 
-			theOne[pc]->f = floatByte;
-			theOne[++pc] = new Float(true);
-			theOne[++pc] = new Float(true);
-			theOne[++pc] = new Float(true);
-		}
-
-		else if (memory[pc] == 72) {
-			theOne[pc] = new Pushvc();
+			theOne[i]->f = floatByte;
+			theOne[++i] = new Float(true);
+			theOne[++i] = new Float(true);
+			theOne[++i] = new Float(true);
 		}
 
-		else if (memory[pc] == 73) {
-			theOne[pc] = new Pushvs();
+		else if (memory[i] == 72) {
+			theOne[i] = new Pushvc();
 		}
 
-		else if (memory[pc] == 74) {
-			theOne[pc] = new Pushvi();
+		else if (memory[i] == 73) {
+			theOne[i] = new Pushvs();
 		}
 
-		else if (memory[pc] == 75) {
-			theOne[pc] = new Pushvf();
+		else if (memory[i] == 74) {
+			theOne[i] = new Pushvi();
 		}
 
-		else if (memory[pc] == 76) {
-			theOne[pc] = new Popm();
+		else if (memory[i] == 75) {
+			theOne[i] = new Pushvf();
 		}
 
-		else if (memory[pc] == 80) {
-			theOne[pc] = new Popv();
+		else if (memory[i] == 76) {
+			theOne[i] = new Popm();
 		}
 
-		else if (memory[pc] == 77) {
-			theOne[pc] = new Popa();
+		else if (memory[i] == 80) {
+			theOne[i] = new Popv();
 		}
 
-		else if (memory[pc] == 84) {
-			theOne[pc] = new Peekc();
+		else if (memory[i] == 77) {
+			theOne[i] = new Popa();
 		}
 
-		else if (memory[pc] == 85) {
-			theOne[pc] = new Peeks();
+		else if (memory[i] == 84) {
+			theOne[i] = new Peekc();
 		}
 
-		else if (memory[pc] == 86) {
-			theOne[pc] = new Peeki();
+		else if (memory[i] == 85) {
+			theOne[i] = new Peeks();
 		}
 
-		else if (memory[pc] == 87) {
-			theOne[pc] = new Peekf();
+		else if (memory[i] == 86) {
+			theOne[i] = new Peeki();
 		}
 
-		else if (memory[pc] == 88) {
-			theOne[pc] = new Pokec();
+		else if (memory[i] == 87) {
+			theOne[i] = new Peekf();
 		}
 
-		else if (memory[pc] == 89) {
-			theOne[pc] = new Pokes();
+		else if (memory[i] == 88) {
+			theOne[i] = new Pokec();
 		}
 
-		else if (memory[pc] == 90) {
-			theOne[pc] = new Pokei();
+		else if (memory[i] == 89) {
+			theOne[i] = new Pokes();
 		}
 
-		else if (memory[pc] == 91) {
-			theOne[pc] = new Pokef();
+		else if (memory[i] == 90) {
+			theOne[i] = new Pokei();
 		}
 
-		else if (memory[pc] == 94) {
-			theOne[pc] = new Swp();
+		else if (memory[i] == 91) {
+			theOne[i] = new Pokef();
 		}
 
-		else if (memory[pc] == 100) {
-			theOne[pc] = new Add();
+		else if (memory[i] == 94) {
+			theOne[i] = new Swp();
 		}
 
-		else if (memory[pc] == 104) {
-			theOne[pc] = new Sub();
+		else if (memory[i] == 100) {
+			theOne[i] = new Add();
 		}
 
-		else if (memory[pc] == 108) {
-			theOne[pc] = new Mul();
+		else if (memory[i] == 104) {
+			theOne[i] = new Sub();
 		}
 
-		else if (memory[pc] == 112) {
-			theOne[pc] = new Div();
+		else if (memory[i] == 108) {
+			theOne[i] = new Mul();
 		}
 
-		else if (memory[pc] == 144) {
-			theOne[pc] = new Printc();
+		else if (memory[i] == 112) {
+			theOne[i] = new Div();
 		}
 
-		else if (memory[pc] == 145) {
-			theOne[pc] = new Prints();
+		else if (memory[i] == 144) {
+			theOne[i] = new Printc();
 		}
 
-		else if (memory[pc] == 146) {
-			theOne[pc] = new Printi();
+		else if (memory[i] == 145) {
+			theOne[i] = new Prints();
 		}
 
-		else if (memory[pc] == 147) {
-			theOne[pc] = new Printf();
+		else if (memory[i] == 146) {
+			theOne[i] = new Printi();
+		}
+
+		else if (memory[i] == 147) {
+			theOne[i] = new Printf();
 		}
 	}
 
-	pc = theOne[pc]->execute();
+	while(pc >= 0) {
+		pc = theOne[pc]->execute(rstack, pc);
+	}
 
 	fclose(inputF);
 	free(memory);
