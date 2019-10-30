@@ -6,6 +6,6 @@ class Sub : public ByteCode {
 public:
 	Sub();
 	virtual ~Sub();
-	int execute(vector<StackValues*>, stack<int>, int, int, int);
+	int execute(vector<StackValues*>, vector<int>, int, int, int);
 };
 #endif
