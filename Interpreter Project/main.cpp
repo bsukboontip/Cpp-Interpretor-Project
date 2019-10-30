@@ -301,7 +301,7 @@ int main(void) {
 	// sp
 	// pc = test[0]->add(rstack)
 
-
+	cout << "hello world" <<endl;
 
 
 	fclose(inputF);
