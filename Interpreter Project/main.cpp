@@ -2,6 +2,7 @@
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <cstring>
 #include "MemoryObject.h"
 #include "Value.h"
 #include "ByteCode.h"
@@ -49,6 +50,7 @@
 #include "Pokei.h"
 #include "Pokes.h"
 #include "Swp.h"
+#include "StackValues.h"
 
 using namespace std;
 
@@ -73,8 +75,9 @@ int main(void) {
 
 	int sp = -1;
 	int fpsp = -1;
-	vector<Value>rstack;
 	stack <int> fpstack;
+	vector<StackValues> rstack;
+	
 	int pc = 0;
 	int i;
 	MemoryObject* theOne[inputSize];
@@ -117,8 +120,8 @@ int main(void) {
 			theOne[i] = new Pushs();
 			theOne[++i] = new Short();
 
-			short shortBytes = (short)((unsigned char)(memory[i] << 8) |
-										(unsigned char)(memory[i + 1]));
+			short shortBytes;
+			memcpy(&shortBytes, memory + pc * sizeof(char), sizeof(short));
 
 			theOne[i]->s = shortBytes;
 			theOne[++i] = new Short(true);
@@ -131,11 +134,14 @@ int main(void) {
 			// 	cout << (int)memory[i] << endl;
 			// }
 
-			int integer = (int)((unsigned char)(memory[i]) << 24 |
-								(unsigned char)(memory[i + 1] << 16) |
-								(unsigned char)(memory[i + 2] << 8) |
-								(unsigned char)(memory[i + 3]));
+
 	
+			// cout << integer << endl;
+
+			int integer;
+			memcpy(&integer, memory + pc * sizeof(char), sizeof(int));
+			// char test[4] = {0, 0, 0, 16};
+			// memcpy(&integer1, test, sizeof(int));
 			// cout << integer << endl;
 			
 			theOne[i]->i = integer;
@@ -147,10 +153,14 @@ int main(void) {
 			theOne[i] = new Pushf();
 			theOne[++i] = new Float();
 
-			float floatByte = (float)((unsigned char)(memory[i]) << 24 |
-								(unsigned char)(memory[i + 1] << 16) |
-								(unsigned char)(memory[i + 2] << 8) |
-								(unsigned char)(memory[i + 3]));
+
+			// float floatByte = (float)((unsigned char)(memory[pc]) << 24 |
+			// 					(unsigned char)(memory[pc + 1] << 16) |
+			// 					(unsigned char)(memory[pc + 2] << 8) |
+			// 					(unsigned char)(memory[pc + 3]));
+
+			float floatByte;
+			memcpy(&floatByte, memory + pc * sizeof(char), sizeof(float));
 
 			theOne[i]->f = floatByte;
 			theOne[++i] = new Float(true);
@@ -255,8 +265,10 @@ int main(void) {
 		}
 	}
 
-	while(pc >= 0) {
-		pc = theOne[pc]->execute(rstack, pc);
+
+	pc = 0;
+	while(pc != -1) {
+		pc = theOne[0]->execute(rstack, fpstack, sp, fpsp);
 	}
 
 	fclose(inputF);

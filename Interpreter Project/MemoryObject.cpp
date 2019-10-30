@@ -5,28 +5,12 @@ MemoryObject::MemoryObject() {
 }
 MemoryObject::~MemoryObject() {}
 
-// MemoryObject::MemoryObject(char* memInput, int size) {
-// 	for (int i = 0; i < size; i++) {
-// 		memory[i] = memInput[i];
-// 	}
-// }
+// char MemoryObject::getChar() {}
 
-char MemoryObject::getChar() {}
+// short MemoryObject::getShort() {}
 
-short MemoryObject::getShort() {}
+// int MemoryObject::getInt() {}
 
-int MemoryObject::getInt() {}
+// float MemoryObject::getFloat() {}
 
-float MemoryObject::getFloat() {}
-
-int MemoryObject::execute() {}
-
-//void MemoryObject::getByteCode(int pc) {
-//
-//	return
-//}
-
-// ByteCode* MemoryObject::getMemory(int pc) {
-
-// 	return 
-// }
+// int MemoryObject::execute(vector<StackValues> rstack, stack<int> fpstack, int sp, int fpsp) {}
