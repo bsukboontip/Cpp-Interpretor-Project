@@ -146,8 +146,7 @@ int main(void) {
 
 			int integer;
 			memcpy(&integer, memory + i * sizeof(char), sizeof(int));
-			// int integer1;
-			// char test[4] = {16, 0, 0, 0};
+
 			// memcpy(&integer1, test, sizeof(int));
 			cout << "int: " << integer << endl;
 			
@@ -283,8 +282,10 @@ int main(void) {
 	StackValues* newStack;
 	cout << "BREAK" << endl;
 	pc = 0;
+
 	int count = 0;
 	while(pc != -1 && count < 15) {
+		cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
 		// cout << pc << (int)memory[pc] << endl;
 		if (memory[pc] == 68) {
 			newStack = new StackValues(theOne[pc + 1]->getChar());
@@ -303,7 +304,7 @@ int main(void) {
 			rstack.push_back(newStack);
 			pc += 5;
 			sp += 1;
-			cout << "PC: " << pc << endl;
+			// cout << "PC: " << pc << endl;
 		}
 		else if (memory[pc] == 71) {
 			newStack = new StackValues(theOne[pc + 1]->getFloat());
@@ -313,14 +314,23 @@ int main(void) {
 		}
 		else {
 			// pc++;
-			cout << pc << " pc: " << (int)memory[pc] << endl;
+			// cout << pc << " pc: " << (int)memory[pc] << endl;
 			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
 		}
 		count++;
+		cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
+		cout << "pc = " << pc << endl;
+		cout << "count = " << count << endl;
 	}
 
+
+	// int k;
+	// for (k =0; k< inputSize ; k++) {
+	// 	cout << "memory[" << k << "] : " << int(memory[k]) <<endl;
+	// }
+
 	// cout << rstack.size() << endl;
-	// cout << "HELLO" << endl;
+	cout << "OUT OF THE LOOP" << endl;
 
 	fclose(inputF);
 	free(memory);
