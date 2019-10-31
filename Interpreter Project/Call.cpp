@@ -12,6 +12,7 @@ int Call::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, i
 	// cout << "PC in CALL AFTER: " << pc << endl;
 	rstack.pop_back();
 	rstack.pop_back();
+	cout << "fpstack[" << fpsp <<"]= " << fpstack.back() << endl;
 	
 	return pc;	
 }

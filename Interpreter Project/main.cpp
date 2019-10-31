@@ -58,7 +58,9 @@ using namespace std;
 int main(void) {
 
 	// FILE *inputF = fopen("interpreter_input.smp", "rb");
-	FILE *inputF = fopen("36_jmp_test.smp", "rb");
+	// FILE *inputF = fopen("36_jmp_test.smp", "rb");
+	// FILE *inputF = fopen("40_jmpc_test.smp", "rb");
+	FILE *inputF = fopen("75_pushvf_test.smp", "rb");
 	fseek(inputF, 0, SEEK_END);
 	long inputSize = ftell(inputF);
 	rewind(inputF);
@@ -83,7 +85,7 @@ int main(void) {
 	// rstack.push_back(newStack);
 	
 	int pc = 0;
-	int i;
+	unsigned int i;
 	MemoryObject* theOne[inputSize];
 	// cout << inputSize << endl;
 	MemoryObject* newOne;
@@ -283,7 +285,8 @@ int main(void) {
 	pc = 0;
 
 	int count = 0;
-	while(pc != -1 && count < 15) {
+	// while(pc != -1 && count < 15) {
+	while (pc != -1) {
 		cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
 		// cout << pc << (int)memory[pc] << endl;
 		if (memory[pc] == 68) {
@@ -312,12 +315,12 @@ int main(void) {
 			sp += 1;
 		}
 		else {
-			// pc++;
 			// cout << pc << " pc: " << (int)memory[pc] << endl;
-			pc = theOne[pc]->execute(&rstack, &fpstack, &sp, &fpsp, pc);
+			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
+			cout << "pc = " << pc << endl;
 		}
 		count++;
-		cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
+		// cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
 		cout << "pc = " << pc << endl;
 		cout << "count = " << count << endl;
 	}
@@ -330,6 +333,37 @@ int main(void) {
 
 	// cout << rstack.size() << endl;
 	cout << "OUT OF THE LOOP" << endl;
+
+	cout << "pc: " << pc << endl;
+	cout << "sp: " << sp << endl;
+	if (rstack.empty()) {
+		cout << "empty" << endl;
+	}
+	else {
+		for (i = 0; i < rstack.size(); i++) {
+			if (rstack[i]->type == 'c') {
+				cout << "rstack[" << i <<"]= " << rstack[i]->c << endl;
+			}
+			else if (rstack[i]->type == 's') {
+				cout << "rstack[" << i <<"]= " << rstack[i]->s << endl;
+			}
+			else if (rstack[i]->type == 'i') {
+				cout << "rstack[" << i <<"]= " << rstack[i]->i << endl;
+			}
+			else if (rstack[i]->type == 'f') {
+				cout << "rstack[" << i <<"]= " << rstack[i]->f << endl;
+			}
+		}
+	}
+	cout << "fpsp: " << fpsp << endl;
+	if (fpstack.empty()) {
+		cout << "empty" << endl;
+	}
+	else {
+		for (i = 0; i < fpstack.size(); i++) {
+			cout << "rstack[" << i <<"]= " << fpstack[i] << endl;
+		}
+	}
 
 	fclose(inputF);
 	free(memory);

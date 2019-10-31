@@ -16,7 +16,7 @@ int Popa::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, i
 		rstack.pop_back();
 	}
 
-	while (fpstack[fpsp] != sp) {
+	while (fpstack[fpsp] < sp) {
 		rstack.pop_back();
 		sp--;
 	}
