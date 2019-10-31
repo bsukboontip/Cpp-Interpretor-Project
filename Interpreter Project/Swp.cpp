@@ -4,7 +4,7 @@
 Swp::Swp(){}
 Swp::~Swp(){}
 
-int Swp::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int fpsp, int pc){
+int Swp::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	
 	StackValues * temp; 
 	temp = rstack[sp-1];

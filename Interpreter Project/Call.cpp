@@ -3,7 +3,7 @@
 Call::Call(){}
 Call::~Call(){}
 
-int Call::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int fpsp, int pc){
+int Call::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	fpstack.push_back(sp - rstack[sp]->getInt() - 1);
 	fpsp++;
 	sp--;

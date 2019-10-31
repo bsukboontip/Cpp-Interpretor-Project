@@ -4,7 +4,7 @@
 Add::Add(){}
 Add::~Add(){}
 
-int Add::execute(vector<StackValues*> rstack, vector<int>fpstack, int sp, int fpsp, int pc){
+int Add::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 
 	if (rstack[sp]->type == 'c' && rstack[sp-1]->type == 'c') {
 		rstack[sp-1]->c = rstack[sp-1]->c + rstack[sp]->c;

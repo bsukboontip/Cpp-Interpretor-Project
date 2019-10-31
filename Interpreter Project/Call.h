@@ -6,6 +6,6 @@ class Call : public ByteCode {
 public:
 	Call();
 	virtual ~Call();
-	int execute(vector<StackValues*>, vector<int>, int, int, int);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
 };
 #endif

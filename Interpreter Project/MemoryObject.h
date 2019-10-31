@@ -26,7 +26,7 @@ public:
 	// static vector<Value>rstack;
 	// static stack<int>fpstack;
 
-	virtual int execute(vector<StackValues*>, vector<int>, int, int, int) = 0;
+	virtual int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc) = 0;
 	virtual char getChar() = 0;
 	virtual short getShort() = 0;
 	virtual int getInt() = 0;

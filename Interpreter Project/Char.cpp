@@ -30,7 +30,7 @@ float Char::getFloat() {
 	return 0;
 }
 
-int Char::execute(vector<StackValues*>, vector<int>, int, int, int) {
+int Char::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc) {
 	error = true;
 	return 0;
 }

@@ -4,7 +4,7 @@
 Pushvf::Pushvf(){}
 Pushvf::~Pushvf(){}
 
-int Pushvf::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int fpsp, int pc){
+int Pushvf::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	int loc = rstack[sp]->getInt();
 	rstack.pop_back();
 	int integer = fpstack[fpsp] + loc + 1;

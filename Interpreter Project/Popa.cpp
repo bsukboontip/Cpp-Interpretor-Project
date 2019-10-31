@@ -4,7 +4,7 @@
 Popa::Popa(){}
 Popa::~Popa(){}
 
-int Popa::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int fpsp, int pc){
+int Popa::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	int saveNum = rstack[sp]->getInt();
 	rstack.pop_back();
 	sp--;

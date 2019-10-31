@@ -3,6 +3,6 @@
 Pushc::Pushc(){}
 Pushc::~Pushc(){}
 
-int Pushc::execute(vector<StackValues*>, vector<int>, int, int, int){
+int Pushc::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	return 0;
 }

@@ -3,7 +3,7 @@
 Div::Div(){}
 Div::~Div(){}
 
-int Div::execute(vector<StackValues*> rstack, vector<int>fpstack, int sp, int fpsp, int pc){
+int Div::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	
 	if (rstack[sp]->type == 'c' && rstack[sp-1]->type == 'c') {
 		rstack[sp-1]->c = rstack[sp-1]->c / rstack[sp]->c;

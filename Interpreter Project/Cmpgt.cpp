@@ -4,7 +4,7 @@
 Cmpgt::Cmpgt(){}
 Cmpgt::~Cmpgt(){}
 
-int Cmpgt::execute(vector<StackValues*> rstack, vector<int>fpstack, int sp, int fpsp, int pc){
+int Cmpgt::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 
 
 	if (rstack[sp]->type == 'c' && rstack[sp-1]->type == 'c') {

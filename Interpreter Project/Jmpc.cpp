@@ -3,7 +3,7 @@
 Jmpc::Jmpc(){}
 Jmpc::~Jmpc(){}
 
-int Jmpc::execute(vector<StackValues*> rstack, vector<int> fpstack, int sp, int fpsp, int pc){
+int Jmpc::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	
 	if (rstack[sp - 1]->getType() == 'c') {
 		if (rstack[sp - 1]->getChar()) {

@@ -3,7 +3,7 @@
 Mul::Mul(){}
 Mul::~Mul(){}
 
-int Mul::execute(vector<StackValues*> rstack, vector<int>fpstack, int sp, int fpsp, int pc){
+int Mul::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 
 	if (rstack[sp]->type == 'c' && rstack[sp-1]->type == 'c') {
 		rstack[sp-1]->c = rstack[sp-1]->c * rstack[sp]->c;

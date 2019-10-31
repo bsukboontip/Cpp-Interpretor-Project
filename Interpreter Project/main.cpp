@@ -89,7 +89,7 @@ int main(void) {
 	MemoryObject* newOne;
 
 	for (i = 0; i < inputSize; i++) {
-		cout << (int)memory[i] << " pc: "<< i << endl;
+//		cout << (int)memory[i] << " pc: "<< i << endl;
 		// cout << i << endl;
 		if (memory[i] == 132) {
 			theOne[i] = new Cmpe();

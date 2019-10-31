@@ -3,6 +3,6 @@
 Pushs::Pushs(){}
 Pushs::~Pushs(){}
 
-int Pushs::execute(vector<StackValues*>, vector<int>, int, int, int){
+int Pushs::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
 	return 0;
 }
