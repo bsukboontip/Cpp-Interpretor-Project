@@ -89,8 +89,7 @@ int main(void) {
 	MemoryObject* newOne;
 
 	for (i = 0; i < inputSize; i++) {
-//		cout << (int)memory[i] << " pc: "<< i << endl;
-		// cout << i << endl;
+
 		if (memory[i] == 132) {
 			theOne[i] = new Cmpe();
 		}
@@ -148,7 +147,7 @@ int main(void) {
 			memcpy(&integer, memory + i * sizeof(char), sizeof(int));
 
 			// memcpy(&integer1, test, sizeof(int));
-			cout << "int: " << integer << endl;
+			// cout << "int: " << integer << endl;
 			
 			theOne[i]->i = integer;
 			theOne[++i] = new Int(true);
@@ -315,7 +314,7 @@ int main(void) {
 		else {
 			// pc++;
 			// cout << pc << " pc: " << (int)memory[pc] << endl;
-			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
+			pc = theOne[pc]->execute(&rstack, &fpstack, &sp, &fpsp, pc);
 		}
 		count++;
 		cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
