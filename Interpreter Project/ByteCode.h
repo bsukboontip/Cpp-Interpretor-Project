@@ -12,6 +12,6 @@ public:
 	virtual short getShort();
 	virtual int getInt();
 	virtual float getFloat();
-	virtual int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	virtual int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif

@@ -4,7 +4,7 @@
 Pushvi::Pushvi(){}
 Pushvi::~Pushvi(){}
 
-int Pushvi::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
+int Pushvi::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag){
 	int loc = rstack[sp]->getInt();
 	rstack.pop_back();
 	int integer = fpstack[fpsp] + loc + 1;

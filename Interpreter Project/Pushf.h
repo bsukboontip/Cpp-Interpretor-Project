@@ -6,6 +6,6 @@ class Pushf : public ByteCode {
 public:
 	Pushf();
 	virtual ~Pushf();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif

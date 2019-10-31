@@ -3,10 +3,10 @@
 Halt::Halt(){}
 Halt::~Halt(){}
 
-int Halt::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
-	pc = -1;
+int Halt::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag){
 
-	// cout << "AKJLSHDKJLAHSD" << endl;
+	flag = 0;
+	// cout << flag << endl;
 
 	return pc;
 }

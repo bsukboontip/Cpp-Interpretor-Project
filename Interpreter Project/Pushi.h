@@ -6,6 +6,6 @@ class Pushi : public ByteCode {
 public:
 	Pushi();
 	virtual ~Pushi();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif

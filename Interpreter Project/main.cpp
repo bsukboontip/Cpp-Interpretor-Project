@@ -83,7 +83,6 @@ int main(void) {
 	vector<StackValues*> rstack;
 	// StackValues* newStack = new StackValues();
 	// rstack.push_back(newStack);
-	
 	int pc = 0;
 	unsigned int i;
 	MemoryObject* theOne[inputSize];
@@ -285,12 +284,12 @@ int main(void) {
 	}
 
 	StackValues* newStack;
-	cout << "BREAK" << endl;
+	// cout << "BREAK" << endl;
 	pc = 0;
+	int flag = 1;
 
-	int count = 0;
 	// while(pc != -1 && count < 15) {
-	while (pc != -1) {
+	while (flag) {
 		// cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
 		if (memory[pc] == 68) {
 			newStack = new StackValues(theOne[pc + 1]->getChar());
@@ -320,7 +319,7 @@ int main(void) {
 			sp += 1;
 		}
 		else {
-			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
+			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc, flag);
 		}
 		// count++;
 		// if (!rstack.empty()) {
@@ -338,7 +337,6 @@ int main(void) {
 		// 	}
 		// }
 		// cout << "pc = " << pc << endl;
-		// cout << "count = " << count << endl;
 	}
 
 
@@ -348,12 +346,13 @@ int main(void) {
 	// }
 
 	// cout << rstack.size() << endl;
-	cout << "OUT OF THE LOOP" << endl;
+	// cout << "OUT OF THE LOOP" << endl;
 
-	cout << "pc: " << pc << endl;
+	cout << endl;
+	cout << "PC: " << pc << endl;
 	cout << "sp: " << sp << endl;
 	if (rstack.empty()) {
-		cout << "empty" << endl;
+		cout << "rstack: empty" << endl;
 	}
 	else {
 		for (i = 0; i < rstack.size(); i++) {
@@ -373,11 +372,11 @@ int main(void) {
 	}
 	cout << "fpsp: " << fpsp << endl;
 	if (fpstack.empty()) {
-		cout << "empty" << endl;
+		cout << "fpstack: empty" << endl;
 	}
 	else {
 		for (i = 0; i < fpstack.size(); i++) {
-			cout << "rstack[" << i <<"]= " << fpstack[i] << endl;
+			cout << "fpstack[" << i <<"]= " << fpstack[i] << endl;
 		}
 	}
 

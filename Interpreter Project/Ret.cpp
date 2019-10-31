@@ -4,7 +4,7 @@
 Ret::Ret(){}
 Ret::~Ret(){}
 
-int Ret::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
+int Ret::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag){
 	sp = fpstack[fpsp];
 	// cout << "fpstack[" << fpsp <<"]= " << fpstack.back() << endl;
 	fpstack.pop_back();

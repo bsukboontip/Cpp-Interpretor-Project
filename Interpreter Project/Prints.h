@@ -6,6 +6,6 @@ class Prints : public ByteCode {
 public:
 	Prints();
 	virtual ~Prints();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif

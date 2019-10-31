@@ -6,6 +6,6 @@ class Pokes : public ByteCode {
 public:
 	Pokes();
 	virtual ~Pokes();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif

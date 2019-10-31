@@ -4,7 +4,7 @@
 Cmplt::Cmplt(){}
 Cmplt::~Cmplt(){}
 
-int Cmplt::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
+int Cmplt::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag){
 
 	if (rstack[sp]->type == 'c' && rstack[sp-1]->type == 'c') {
 		rstack[sp-1]->c = rstack[sp-1]->c < rstack[sp]->c;

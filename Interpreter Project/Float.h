@@ -15,7 +15,7 @@ public:
 	short getShort();
 	int getInt();
 	float getFloat();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 
 };
 #endif

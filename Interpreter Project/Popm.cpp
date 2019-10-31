@@ -4,7 +4,7 @@
 Popm::Popm(){}
 Popm::~Popm(){}
 
-int Popm::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc){
+int Popm::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag){
 	int i;
 	if (rstack[sp]->type == 'c' && rstack[sp-1]->type == 'c') {
 		sp -= rstack[sp]->c + 1;

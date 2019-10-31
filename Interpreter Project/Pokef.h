@@ -6,6 +6,6 @@ class Pokef : public ByteCode {
 public:
 	Pokef();
 	virtual ~Pokef();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif

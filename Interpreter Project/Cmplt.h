@@ -6,6 +6,6 @@ class Cmplt : public ByteCode {
 public:
 	Cmplt();
 	virtual ~Cmplt();
-	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc);
+	int execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, int &fpsp, int pc, int &flag);
 };
 #endif
