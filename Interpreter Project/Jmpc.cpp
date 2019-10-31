@@ -9,20 +9,32 @@ int Jmpc::execute(vector<StackValues*> &rstack, vector<int> &fpstack, int &sp, i
 		if (rstack[sp - 1]->getChar()) {
 			pc = rstack[sp]->getInt();
 		}
+		else {
+			pc++;
+		}
 	}
 	else if (rstack[sp - 1]->getType() == 's') {
 		if (rstack[sp - 1]->getShort()) {
 			pc = rstack[sp]->getInt();
+		}
+		else {
+			pc++;
 		}
 	}
 	else if (rstack[sp - 1]->getType() == 'i') {
 		if (rstack[sp - 1]->getInt()) {
 			pc = rstack[sp]->getInt();
 		}
+		else {
+			pc++;
+		}
 	}
 	else if (rstack[sp - 1]->getType() == 'f') {
 		if (rstack[sp - 1]->getFloat()) {
 			pc = rstack[sp]->getInt();
+		}
+		else {
+			pc++;
 		}
 	}
 

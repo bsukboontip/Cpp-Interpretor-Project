@@ -57,10 +57,10 @@ using namespace std;
 
 int main(void) {
 
-	// FILE *inputF = fopen("interpreter_input.smp", "rb");
+	FILE *inputF = fopen("interpreter_input.smp", "rb");
 	// FILE *inputF = fopen("36_jmp_test.smp", "rb");
 	// FILE *inputF = fopen("40_jmpc_test.smp", "rb");
-	FILE *inputF = fopen("75_pushvf_test.smp", "rb");
+	// FILE *inputF = fopen("Jumps.bin", "rb");
 	fseek(inputF, 0, SEEK_END);
 	long inputSize = ftell(inputF);
 	rewind(inputF);
@@ -89,6 +89,10 @@ int main(void) {
 	MemoryObject* theOne[inputSize];
 	// cout << inputSize << endl;
 	MemoryObject* newOne;
+
+	// for (i = 0; i < inputSize; i++) {
+	// 	cout << (int)memory[i] << endl;
+	// }
 
 	for (i = 0; i < inputSize; i++) {
 
@@ -122,8 +126,8 @@ int main(void) {
 
 		else if (memory[i] == 68) {
 			theOne[i] = new Pushc();
-			theOne[i]->c = memory[i];
 			theOne[++i] = new Char();
+			theOne[i]->c = memory[i];
 		}
 		else if (memory[i] == 69) {
 			theOne[i] = new Pushs();
@@ -287,11 +291,12 @@ int main(void) {
 	int count = 0;
 	// while(pc != -1 && count < 15) {
 	while (pc != -1) {
-		cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
-		// cout << pc << (int)memory[pc] << endl;
+		// cout << "memory[" << pc << "] : " << int(memory[pc]) <<endl;
 		if (memory[pc] == 68) {
 			newStack = new StackValues(theOne[pc + 1]->getChar());
 			rstack.push_back(newStack);
+			// cout << "HELLO " << (int)newStack->c << endl;
+			// cout << "HELLO " << (int)theOne[pc + 1]->getChar() << endl;
 			sp += 1;
 			pc += 2;
 		}
@@ -315,14 +320,25 @@ int main(void) {
 			sp += 1;
 		}
 		else {
-			// cout << pc << " pc: " << (int)memory[pc] << endl;
 			pc = theOne[pc]->execute(rstack, fpstack, sp, fpsp, pc);
-			cout << "pc = " << pc << endl;
 		}
-		count++;
-		// cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
-		cout << "pc = " << pc << endl;
-		cout << "count = " << count << endl;
+		// count++;
+		// if (!rstack.empty()) {
+		// 	if (rstack.back()->type == 'c') {
+		// 		cout << "rstack[" << sp <<"]= " << (int) rstack.back()->c << endl;
+		// 	}
+		// 	else if (rstack.back()->type == 's') {
+		// 		cout << "rstack[" << sp <<"]= " << rstack.back()->s << endl;
+		// 	}
+		// 	else if (rstack.back()->type == 'i') {
+		// 		cout << "rstack[" << sp <<"]= " << rstack.back()->i << endl;
+		// 	}
+		// 	else if (rstack.back()->type == 'f') {
+		// 		cout << "rstack[" << sp <<"]= " << rstack.back()->f << endl;
+		// 	}
+		// }
+		// cout << "pc = " << pc << endl;
+		// cout << "count = " << count << endl;
 	}
 
 
