@@ -62,7 +62,7 @@ int main(void) {
 	// FILE *inputF = fopen("40_jmpc_test.smp", "rb");
 	// FILE *inputF = fopen("Jumps.bin", "rb");
 	fseek(inputF, 0, SEEK_END);
-	long inputSize = ftell(inputF);
+	unsigned int inputSize = ftell(inputF);
 	rewind(inputF);
 
 	unsigned char* memory = (unsigned char*) malloc(sizeof(unsigned char) * inputSize);
@@ -71,7 +71,7 @@ int main(void) {
 		exit(1);
 	}
 
-	long result = fread(memory, 1, inputSize, inputF);
+	unsigned int result = fread(memory, 1, inputSize, inputF);
 	if (result != inputSize) {
 		fputs("reading error", stderr);
 		exit(2);
